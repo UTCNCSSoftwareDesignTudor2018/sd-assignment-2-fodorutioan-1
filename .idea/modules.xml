@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Code/SINU/SINU.iml" filepath="$PROJECT_DIR$/Code/SINU/SINU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Code/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.iml" filepath="$PROJECT_DIR$/Code/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sd-assignment-1-fodorutioan/Code/mysql-connector-java-5.1.46/mysql-connector-java-5.1.461.iml" filepath="$PROJECT_DIR$/sd-assignment-1-fodorutioan/Code/mysql-connector-java-5.1.46/mysql-connector-java-5.1.461.iml" />
+    </modules>
+  </component>
+</project>
