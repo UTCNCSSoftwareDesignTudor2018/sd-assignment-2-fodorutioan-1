@@ -1,7 +1,9 @@
 package com.sinu.sinu.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "students")
@@ -29,8 +31,16 @@ public class Student {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "pass")
+    @Column(name = "password")
     private String password;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "enrollments",
+            joinColumns = { @JoinColumn(name = "student_id")},
+            inverseJoinColumns = { @JoinColumn(name = "course_id")}
+    )
+    Set<Course> courses = new HashSet<>();
 
     public Student() {
     }

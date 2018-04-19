@@ -2,7 +2,9 @@ package com.sinu.sinu.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "courses")
@@ -18,12 +20,15 @@ public class Course {
     @Column(name = "startdate")
     private Date startDate;
 
-    @Column(name = "endate")
+    @Column(name = "enddate")
     private Date endDate;
 
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
+
+    @ManyToMany(mappedBy = "courses")
+    private Set<Student> students = new HashSet<>();
 
     public Course() {
     }

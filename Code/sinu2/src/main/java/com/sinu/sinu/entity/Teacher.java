@@ -17,7 +17,7 @@ public class Teacher {
     @Column(name = "username")
     private String user;
 
-    @Column(name = "pass")
+    @Column(name = "password")
     private String password;
 
     @Column(name = "name")
