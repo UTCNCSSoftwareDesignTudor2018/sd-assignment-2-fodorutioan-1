@@ -2,12 +2,7 @@ package com.sinu.sinu.repository;
 
 import com.sinu.sinu.entity.Enrollment;
 import org.springframework.data.jpa.repository.JpaRepository;
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
-public interface EnrollmentRepository extends JpaRepository<Enrollment, Long> {
-
-//    public List<Enrollment> getEnrollmentsByStudentId(Long studentId);
-//
-//    public void addEnrollment(Enrollment enrollment);
-
-}
+@Repository
+public interface EnrollmentRepository extends JpaRepository<Enrollment, Long> {}

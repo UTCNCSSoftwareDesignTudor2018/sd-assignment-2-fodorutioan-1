@@ -15,7 +15,7 @@ public class Teacher {
     private String email;
 
     @Column(name = "username")
-    private String user;
+    private String username;
 
     @Column(name = "password")
     private String password;
@@ -51,11 +51,11 @@ public class Teacher {
     }
 
     public String getUser() {
-        return user;
+        return username;
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.username = user;
     }
 
     public String getPassword() {
@@ -73,7 +73,7 @@ public class Teacher {
         Teacher teacher = (Teacher) o;
         return Objects.equals(id, teacher.id) &&
                 Objects.equals(email, teacher.email) &&
-                Objects.equals(user, teacher.user) &&
+                Objects.equals(username, teacher.username) &&
                 Objects.equals(password, teacher.password) &&
                 Objects.equals(name, teacher.name);
     }
@@ -81,7 +81,7 @@ public class Teacher {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, email, user, password, name);
+        return Objects.hash(id, email, username, password, name);
     }
 
     @Override
@@ -89,7 +89,7 @@ public class Teacher {
         return "Teacher{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                ", user='" + user + '\'' +
+                ", user='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 '}';

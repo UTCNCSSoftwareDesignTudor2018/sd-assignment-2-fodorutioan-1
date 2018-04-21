@@ -1,4 +1,4 @@
-package com.sinu.sinu.service;
+package com.sinu.sinu.service.implementation;
 
 import com.sinu.sinu.entity.Student;
 import com.sinu.sinu.repository.StudentRepository;
@@ -11,35 +11,23 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentServiceImpl implements StudentService {
+public class StudentServiceImpl {
 
     @Autowired
     private StudentRepository studentRepository;
 
-    //public StudentServiceImpl(StudentRepository studentRepository) {
-        //this.studentRepository = studentRepository;
-   // }
-
-    @Override
-    @Transactional
     public List<Student> listStudents() {
         return Util.toList(studentRepository.findAll());
     }
 
-    @Override
-    @Transactional
     public Student getStudentByUsername(String username) {
-        return null;//studentRepository.findByUsername(username);
+        return studentRepository.findByUsername(username);
     }
 
-    @Override
-    @Transactional
     public Optional<Student> getStudentById(Long id) {
-        return studentRepository.findStudentById(id);
+        return studentRepository.findById(id);
     }
 
-    @Override
-    @Transactional
     public void updateStudent(Student student) {
         this.studentRepository.save(student);
     }
