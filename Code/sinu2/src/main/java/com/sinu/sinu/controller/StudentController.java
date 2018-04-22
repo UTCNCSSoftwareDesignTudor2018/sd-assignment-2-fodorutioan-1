@@ -1,7 +1,11 @@
 package com.sinu.sinu.controller;
 
+import com.sinu.sinu.entity.Course;
+import com.sinu.sinu.repository.StudentRepository;
+import com.sinu.sinu.service.CourseService;
+import com.sinu.sinu.service.EnrollmentService;
 import com.sinu.sinu.service.StudentService;
-import com.sinu.sinu.service.implementation.StudentServiceImpl;
+import com.sinu.sinu.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +19,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class StudentController {
 
     @Autowired
-    private StudentServiceImpl studentServiceImpl;
+    private StudentService studentService;
+
+    @Autowired
+    private EnrollmentService enrollmentService;
+
+    @Autowired
+    private CourseService courseService;
 
     @RequestMapping(value="/student")
     public ModelAndView mainPage() {
@@ -33,11 +43,5 @@ public class StudentController {
 //    }
 
 //    private Logger Log = LoggerFa.getLogger(StudentController.class);
-
-//    public void setStudentService(StudentService studentService) {
-//        this.studentService = studentService;
-//    }
-
-
 
 }
