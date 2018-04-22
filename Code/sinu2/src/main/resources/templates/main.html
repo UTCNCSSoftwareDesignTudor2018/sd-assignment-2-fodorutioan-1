@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>SINU TUCN application</title>
-
+    <title>SINU TUCN Application</title>
     <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.2.0/css/bootstrap.min.css"
           th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}"
           rel="stylesheet" media="screen" />
-
     <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.1/jquery.min.js"
             th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
-
     <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" media="screen" />
-
 </head>
 <body>
-<h1>Technical University of Cluj-Napoca</h1>
-<h2> SINU </h2>
-<img src="../assets/UTCN_2_EN.png">
-<a href="./student" type="button" class="btn btn-default" role="button">Student</a>
-<a href="./teacher" type="button" class="btn btn-default" role="button">Teacher</a>
+    <img src="../static/assets/UTCN_2_EN.css" th:src="@{/assets/UTCN_2_EN.png}" height="150" class="center">
+    <h2 class="center"> SINU </h2>
+    <a href="./student" type="button" class="btn btn-danger center custom" role="button">Student Login</a>
+    <br>
+    <a href="./teacher" type="button" class="btn btn-danger center custom" role="button">Teacher Login</a>
 </body>
 </html>

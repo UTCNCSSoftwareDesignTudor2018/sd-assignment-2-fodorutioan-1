@@ -45,6 +45,17 @@ public class Student {
     public Student() {
     }
 
+    public Student(Long id, String name, String CNP, String address, String email, String group, String username, String password) {
+        this.id = id;
+        this.name = name;
+        this.CNP = CNP;
+        this.address = address;
+        this.email = email;
+        this.group = group;
+        this.username = username;
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }

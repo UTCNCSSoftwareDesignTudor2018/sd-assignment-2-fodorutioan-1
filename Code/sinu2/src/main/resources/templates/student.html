@@ -1,12 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>SINU Student</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <!DOCTYPE html>
-</html>
+    <meta charset="UTF-8">
+    <title>SINU TUCN Student</title>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.2.0/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.1/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+    <link href="../static/css/student.css" th:href="@{/css/student.css}" rel="stylesheet" media="screen" />
+    <script src="../static/js/student.js" th:src="@{/js/student.js}"></script>
 </head>
 <body>
-    <p>Hello Spring Boot!</p>
+    <img src="../static/assets/UTCN_2_EN.css" th:src="@{/assets/UTCN_2_EN.png}" th:height="150" th:class="center">
+    <h2 th:class="center">SINU</h2>
+    <p th:class="center" th:text="'Hello ' + ${studentInfo.name} + '!'"> </p>
+    <h3 ></h3>
+    <!-- Tab links -->
+    <div th:class="tab">
+        <button th:class="tablinks" onclick="openOperation(event, 'edit_profile')">Edit profile</button>
+        <button th:class="tablinks" onclick="openOperation(event, 'enroll_course')">Enroll course</button>
+        <button th:class="tablinks" onclick="openOperation(event, 'register_exam')">Register exam</button>
+    </div>
+
+    <!-- Tab content -->
+    <div th:id="edit_profile" class="tabcontent">
+        <!--<h3></h3>-->
+        <!--<p>London is the capital city of England.</p>-->
+        <form action="/student/edit" th:method="post">
+        <p>Name: <input th:type="text" th:name="name" th:value="${studentInfo.name}"/></p>
+        <p>CNP: <input th:type="text" th:name="CNP" th:value="${studentInfo.CNP}"/></p>
+        <p>Group: <input th:type="text" th:name="group" th:value="${studentInfo.group}"/></p>
+        <p>Email: <input th:type="text" th:name="email" th:value="${studentInfo.email}"/></p>
+        <p>Username: <input th:type="text" th:name="username" th:value="${studentInfo.username}"/></p>
+        <p>Address: <input th:type="text" th:name="address" th:value="${studentInfo.address}"/></p>
+        <p>Password: <input th:type="text" th:name="password" th:value="${studentInfo.password}"/></p>
+        <p><button th:type="submit" th:class="btn-danger">SAVE CHANGES</button>
+                <button th:type="reset" th:class="btn-danger">REVERT CHANGES</button></p>
+        </form>
+    </div>
+
+    <div th:id="enroll_course" th:class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p>
+    </div>
+
+    <div th:id="register_exam" th:class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
 </body>
 </html>
+
