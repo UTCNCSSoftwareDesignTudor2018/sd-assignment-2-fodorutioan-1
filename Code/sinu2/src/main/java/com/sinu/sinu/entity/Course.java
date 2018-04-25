@@ -2,9 +2,9 @@ package com.sinu.sinu.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "courses")
@@ -27,8 +27,20 @@ public class Course {
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
-    @ManyToMany(mappedBy = "courses")
-    private Set<Student> students = new HashSet<>();
+    @OneToMany(
+            mappedBy = "course",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Enrollment> students = new ArrayList<>();
+
+    public List<Enrollment> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Enrollment> students) {
+        this.students = students;
+    }
 
     public Course() {
     }

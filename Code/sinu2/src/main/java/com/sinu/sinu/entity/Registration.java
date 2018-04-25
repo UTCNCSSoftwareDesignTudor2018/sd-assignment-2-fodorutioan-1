@@ -1,9 +1,6 @@
 package com.sinu.sinu.entity;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -11,7 +8,15 @@ import java.util.Objects;
 public class Registration {
 
     @EmbeddedId
-    private RegistrationId registrationId;
+    private RegistrationId id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("examId")
+    private Exam exam;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("studentId")
+    private Student student;
 
     @Column(name = "status")
     private String status;
@@ -19,12 +24,19 @@ public class Registration {
     public Registration() {
     }
 
-    public RegistrationId getRegistrationId() {
-        return registrationId;
+    public Registration(Exam exam, Student student) {
+        this.id = new RegistrationId(exam.getId(), student.getId());
+        this.exam = exam;
+        this.student = student;
+        this.status = "INIT";
     }
 
-    public void setRegistrationId(RegistrationId registrationId) {
-        this.registrationId = registrationId;
+    public RegistrationId getId() {
+        return id;
+    }
+
+    public void setId(RegistrationId id) {
+        this.id = id;
     }
 
     public String getStatus() {
@@ -40,21 +52,37 @@ public class Registration {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Registration that = (Registration) o;
-        return Objects.equals(registrationId, that.registrationId) &&
+        return Objects.equals(id, that.id) &&
                 Objects.equals(status, that.status);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(registrationId, status);
+        return Objects.hash(id, status);
     }
 
     @Override
     public String toString() {
         return "Registration{" +
-                "registrationId=" + registrationId +
+                "registrationId=" + id +
                 ", status='" + status + '\'' +
                 '}';
+    }
+
+    public void setExam(Exam exam) {
+        this.exam = exam;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Exam getExam() {
+        return exam;
+    }
+
+    public Student getStudent() {
+        return student;
     }
 }

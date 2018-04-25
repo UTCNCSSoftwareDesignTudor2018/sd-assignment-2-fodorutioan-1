@@ -30,6 +30,14 @@ public class RegistrationId implements Serializable {
         return studentId;
     }
 
+    public void setExamId(Long examId) {
+        this.examId = examId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

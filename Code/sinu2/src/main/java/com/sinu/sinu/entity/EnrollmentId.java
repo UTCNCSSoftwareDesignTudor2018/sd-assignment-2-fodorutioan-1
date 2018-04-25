@@ -17,6 +17,14 @@ public class EnrollmentId implements Serializable {
     public EnrollmentId() {
     }
 
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
+
     public EnrollmentId(Long courseId, Long studentId) {
         this.courseId = courseId;
         this.studentId = studentId;

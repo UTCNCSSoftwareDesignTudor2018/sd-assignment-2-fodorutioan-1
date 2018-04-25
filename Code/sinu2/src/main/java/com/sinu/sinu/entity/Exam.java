@@ -3,6 +3,8 @@ package com.sinu.sinu.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -22,6 +24,21 @@ public class Exam {
 
     @Column(name = "date")
     private Date date;
+
+    @OneToMany(
+            mappedBy = "exam",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Registration> students = new ArrayList<>();
+
+    public List<Registration> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Registration> students) {
+        this.students = students;
+    }
 
     public Exam() {
     }

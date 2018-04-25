@@ -27,8 +27,6 @@
 
     <!-- Tab content -->
     <div th:id="edit_profile" class="tabcontent">
-        <!--<h3></h3>-->
-        <!--<p>London is the capital city of England.</p>-->
         <form action="/student/edit" th:method="post">
         <p>Name: <input th:type="text" th:name="name" th:value="${studentInfo.name}"/></p>
         <p>CNP: <input th:type="text" th:name="CNP" th:value="${studentInfo.CNP}"/></p>
@@ -42,15 +40,49 @@
         </form>
     </div>
 
-    <div th:id="enroll_course" th:class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
+    <div th:id="enroll_course" th:class="tabcontent" class="form-group blu-margin" th:object="${to_enroll_courses}">
+        <form action="/student/enroll" th:method="post">
+            <select class="form-control" name="courseId" >
+                <option value="0"></option>
+                <option th:each="course : ${to_enroll_courses}"
+                        th:value="${course.id}"
+                        th:text="${course.name}">
+                </option>
+            </select>
+            <p></p>
+        <p><button th:type="submit" th:class="btn-danger">ENROLL COURSE</button></p>
+        </form>
+        <h1>Enrolled Courses:</h1>
+        <div th:if="${courses != null}">
+            <ul>
+                <th:block th:object="${course}">
+                    <li th:each="course : ${courses}" th:text="${course.name + ' ' + course.startDate + ' ' + course.endDate + ' ' + course.teacher.name}"></li>
+                </th:block>
+            </ul>
+        </div>
     </div>
 
-    <div th:id="register_exam" th:class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
-    </div>
+
+    <div th:id="register_exam" th:class="tabcontent" class="form-group blu-margin" th:object="${to_register_exams}">
+        <form action="/student/register" th:method="post">
+            <select class="form-control" name="examId" >
+                <option value="0"></option>
+                <option th:each="exam : ${to_register_exams}"
+                        th:value="${exam.id}"
+                        th:text="${exam.course.name + ' ' + exam.course.date}">
+                </option>
+            </select>
+            <p></p>
+            <p><button th:type="submit" th:class="btn-danger">REGISTER EXAMS</button></p>
+        </form>
+        <h1>Registered exams:</h1>
+        <div th:if="${exams != null}">
+            <ul>
+                <th:block th:object="${exam}">
+                    <li th:each="exam : ${exams}" th:text="${exam.course.name + ' ' + exam.date + ' ' + exam.room + ' ' + exam.course.teacher.name}"></li>
+                </th:block>
+            </ul>
+        </div>
 </body>
 </html>
 

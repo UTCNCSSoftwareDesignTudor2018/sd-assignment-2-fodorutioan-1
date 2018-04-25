@@ -1,21 +1,12 @@
 package com.sinu.sinu;
 
-import com.sinu.sinu.entity.Report;
-import com.sinu.sinu.entity.Student;
-import com.sinu.sinu.entity.Teacher;
-import com.sinu.sinu.repository.StudentRepository;
 import com.sinu.sinu.service.EnrollmentService;
 import com.sinu.sinu.service.ReportService;
 import com.sinu.sinu.service.StudentService;
-import com.sinu.sinu.service.TeacherService;
-import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.List;
-import java.util.Optional;
 
 @SpringBootApplication
 //@EnableJpaRepositories("com.sinu.sinu.repository")
@@ -48,6 +39,10 @@ public class SinuApplication implements CommandLineRunner {
 //        System.out.println(reportService.save(report));
 ////      Optional<Student> student1 = studentService.getStudentById(5L);
 //        System.out.println(student1);
+        //CourseService courseService = new CourseService();
+        //System.out.println(studentService.getStudentById(5L).get());
+        //List<Course> courses = studentService.getStudentById(5L).get().getCourses();
+
     }
 
 }
